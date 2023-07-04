@@ -1,0 +1,626 @@
+------VETORES E MATRIZES------
+
+1)
+
+def ler_vetor():
+    vetor = []
+    for i in range(12):
+        valor = int(input("Digite um valor para a posição {}: ".format(i)))
+        vetor.append(valor)
+    return vetor
+
+def main():
+    vetor = ler_vetor()
+    
+    x = int(input("Digite o valor de X: "))
+    y = int(input("Digite o valor de Y: "))
+    
+    if x < 0 or x >= len(vetor) or y < 0 or y >= len(vetor):
+        print("Posições inválidas!")
+    else:
+        soma = vetor[x] + vetor[y]
+        print("A soma dos valores nas posições {} e {} é: {}".format(x, y, soma))
+
+2)
+
+vetor = [0] * 10
+
+numero = 1
+for i in range(10):
+    vetor[i] = numero
+    numero += 2
+
+print("Vetor preenchido com os 10 primeiros números ímpares:")
+for i in range(10):
+    print(vetor[i])
+
+3)
+
+vetor = []
+for i in range(16):
+    valor = int(input(f'Digite o valor para a posição {i+1}: '))
+    vetor.append(valor)
+
+vetor_invertido = vetor[8:] + vetor[:8]
+
+print("Vetor obtido:")
+print(vetor_invertido)
+
+4)
+
+def busca_valor(vetor, valor):
+    for i in range(len(vetor)):
+        if vetor[i] == valor:
+            return i
+    return -1
+
+vetor = []
+for i in range(20):
+    elemento = int(input(f"Digite o valor {i+1} do vetor: "))
+    vetor.append(elemento)
+
+valor_procurado = int(input("Digite o valor a ser buscado: "))
+
+posicao = busca_valor(vetor, valor_procurado)
+
+if posicao != -1:
+    print(f"O valor {valor_procurado} foi encontrado na posição {posicao}.")
+else:
+    print("O valor não foi encontrado no vetor.")
+
+5)
+
+vetor = []
+
+for i in range(40):
+    valor = int(input(f"Digite o valor {i+1}: "))
+    vetor.append(valor)
+
+contador_pares = 0
+for valor in vetor:
+    if valor % 2 == 0:
+        contador_pares += 1
+
+print(f"O vetor possui {contador_pares} valores pares.")
+
+6)
+
+vetor = []  
+
+for i in range(40):
+    valor = int(input(f"Digite o valor para a posição {i+1}: "))
+    vetor.append(valor)
+
+for i in range(len(vetor)):
+    if vetor[i] < 0:
+        vetor[i] = 0
+
+print("Vetor modificado:")
+for i in range(len(vetor)):
+    print(vetor[i], end=" ")
+
+7)
+
+vetor1 = []
+vetor2 = []
+vetor_intercalado = []
+
+print("Digite os valores do primeiro vetor:")
+for i in range(20):
+    valor = int(input("Digite um valor: "))
+    vetor1.append(valor)
+
+print("Digite os valores do segundo vetor:")
+for i in range(20):
+    valor = int(input("Digite um valor: "))
+    vetor2.append(valor)
+
+for i in range(20):
+    if i % 2 == 0:
+        vetor_intercalado.append(vetor1[i])
+    else:
+        vetor_intercalado.append(vetor2[i])
+
+print("Vetor intercalado:", vetor_intercalado)
+
+8)
+
+vetor = []
+for i in range(40):
+    valor = int(input(f"Digite o valor para a posição {i+1}: "))
+    vetor.append(valor)
+
+for i in range(1, 40):
+    vetor[i] += vetor[i-1]
+
+print("Vetor acumulado:", vetor)
+
+9)
+
+vetor1 = []
+vetor2 = []
+vetor3 = []
+
+for i in range(9):
+    valor = int(input(f"Digite um valor para o primeiro vetor na posição {i+1}: "))
+    vetor1.append(valor)
+
+for i in range(9):
+    valor = int(input(f"Digite um valor para o segundo vetor na posição {i+1}: "))
+    vetor2.append(valor)
+
+for i in range(9):
+    valor = int(input(f"Digite um valor para o terceiro vetor na posição {i+1}: "))
+    vetor3.append(valor)
+
+terco1 = vetor1[:3]
+terco2 = vetor2[3:6]
+terco3 = vetor3[6:9]
+
+vetor_resultante = terco1 + terco2 + terco3
+
+print("Vetor resultante:", vetor_resultante)
+
+10)
+
+vetor = []
+repetidos = []
+
+for i in range(10):
+    valor = int(input(f"Digite um valor para a posição {i+1}: "))
+    vetor.append(valor)
+
+for i in range(10):
+    if vetor.count(vetor[i]) > 1 and vetor[i] not in repetidos:
+        repetidos.append(vetor[i])
+
+if len(repetidos) > 0:
+    print("Valores repetidos encontrados:", repetidos)
+else:
+    print("Não foram encontrados valores repetidos.")
+
+11)
+
+matriz = []
+
+for i in range(10):
+    linha = []
+    for j in range(10):
+        valor = int(input(f"Digite o valor para a posição ({i+1}, {j+1}): "))
+        linha.append(valor)
+    matriz.append(linha)
+
+maior_valor = matriz[0][0]
+linha_maior = 0
+coluna_maior = 0
+
+for i in range(10):
+    for j in range(10):
+        if matriz[i][j] > maior_valor:
+            maior_valor = matriz[i][j]
+            linha_maior = i
+            coluna_maior = j
+
+print(f"O maior valor é {maior_valor} e está localizado na linha {linha_maior+1}, coluna {coluna_maior+1}.")
+
+12)
+
+matriz = []
+
+for i in range(5):
+    linha = []
+    for j in range(5):
+        if i == j:
+            linha.append(1)
+        else:
+            linha.append(0)
+    matriz.append(linha)
+
+for linha in matriz:
+    for elemento in linha:
+        print(elemento, end=" ")
+    print()
+
+13)
+
+matriz = []
+
+for i in range(6):
+    linha = []
+    for j in range(6):
+        valor = int(input(f"Digite o valor para a posição ({i+1}, {j+1}): "))
+        linha.append(valor)
+    matriz.append(linha)
+
+contador = 0
+for linha in matriz:
+    for valor in linha:
+        if valor > 10:
+            contador += 1
+
+print(f"A matriz possui {contador} valores maiores que 10.")
+
+------FUNÇÕES------
+a)
+
+def imprime(valor):
+    print(valor)
+
+b)
+
+def leia():
+    valor = int(input("Digite um número inteiro: "))
+    return valor
+
+c)
+
+def compara(valor1, valor2):
+    if valor1 == valor2:
+        return 1
+    else:
+        return 0
+
+------STRINGS------
+1)
+
+def verifica_palindromo(texto):
+    texto = texto.replace(" ", "").replace("-", "")
+
+    texto = texto.lower()
+
+    if texto == texto[::-1]:
+        return True
+    else:
+        return False
+
+texto_usuario = input("Digite uma palavra ou frase: ")
+
+if verifica_palindromo(texto_usuario):
+    print("É um palíndromo!")
+else:
+    print("Não é um palíndromo.")
+
+2)
+
+def contar_ocorrencias(letra, texto):
+    contador = 0
+    for caractere in texto:
+        if caractere == letra:
+            contador += 1
+    return contador
+
+letra_usuario = input("Digite uma letra: ")
+texto_usuario = input("Digite uma string: ")
+
+letra_usuario = letra_usuario.lower()
+
+ocorrencias = contar_ocorrencias(letra_usuario, texto_usuario)
+
+print(f"A letra '{letra_usuario}' ocorre {ocorrencias} vezes na string '{texto_usuario}'.")
+
+3)
+
+def substituir_caractere(s, ch1, ch2):
+    nova_string = ""
+    for caractere in s:
+        if caractere == ch1:
+            nova_string += ch2
+        else:
+            nova_string += caractere
+    return nova_string
+
+s = input("Digite uma string: ")
+ch1 = input("Digite o caractere a ser substituído: ")
+ch2 = input("Digite o caractere substituto: ")
+
+nova_string = substituir_caractere(s, ch1, ch2)
+
+print("Nova string:", nova_string)
+
+5)
+
+def contar_ocorrencias(s1, s2):
+    contador = 0
+    index = 0
+    while index < len(s1):
+        index = s1.find(s2, index)
+        if index == -1:
+            break
+        contador += 1
+        index += len(s2)
+    return contador
+
+s1 = input("Digite a string: ")
+s2 = input("Digite a substring: ")
+
+ocorrencias = contar_ocorrencias(s1, s2)
+
+print("Número de ocorrências:", ocorrencias)
+
+6)
+
+def substituir_substring(s, sub1, sub2):
+    nova_string = s.replace(sub1, sub2)
+    return nova_string
+
+s = input("Digite a string: ")
+sub1 = input("Digite a substring a ser substituída: ")
+sub2 = input("Digite a nova substring: ")
+
+nova_string = substituir_substring(s, sub1, sub2)
+
+print("Nova string:", nova_string)
+
+7)
+
+def concatenar_strings(s1, s2):
+    s3 = s1 + " " + s2
+    return s3
+
+s1 = input("Digite a string s1: ")
+s2 = input("Digite a string s2: ")
+
+s3 = concatenar_strings(s1, s2)
+
+print("Nova string s3:", s3)
+
+------ARQUIVOS------
+1)
+
+arquivo = open("arq.txt", "w")
+
+print("Digite os caracteres para gravar no arquivo (digite '0' para sair):")
+while True:
+    caractere = input()
+    if caractere == '0':
+        break
+    arquivo.write(caractere)
+
+arquivo.close()
+
+arquivo = open("arq.txt", "r")
+
+print("Conteúdo do arquivo:")
+for linha in arquivo:
+    for caractere in linha:
+        print(caractere, end="")
+
+arquivo.close()
+
+2)
+
+nome_arquivo = input("Digite o nome do arquivo: ")
+
+arquivo = open(nome_arquivo, "r")
+
+num_linhas = sum(1 for _ in arquivo)
+
+arquivo.close()
+
+print("O arquivo possui", num_linhas, "linhas.")
+
+3)
+
+nome_arquivo = input("Digite o nome do arquivo: ")
+
+arquivo = open(nome_arquivo, "r")
+
+conteudo = arquivo.read()
+
+num_vogais = sum(1 for letra in conteudo if letra.lower() in "aeiou")
+
+arquivo.close()
+
+print("O arquivo possui", num_vogais, "vogais.")
+
+4)
+
+nome_arquivo = input("Digite o nome do arquivo: ")
+
+arquivo = open(nome_arquivo, "r")
+
+conteudo = arquivo.read()
+
+num_vogais = 0
+num_consoantes = 0
+
+for letra in conteudo:
+    if letra.isalpha():
+        if letra.lower() in "aeiou":
+            num_vogais += 1
+        else:
+            num_consoantes += 1
+
+arquivo.close()
+
+print("O arquivo possui", num_vogais, "vogais e", num_consoantes, "consoantes.")
+
+5)
+
+nome_arquivo = input("Digite o nome do arquivo: ")
+
+caractere = input("Digite o caractere: ")
+
+arquivo = open(nome_arquivo, "r")
+
+conteudo = arquivo.read()
+
+num_ocorrencias = sum(1 for letra in conteudo if letra == caractere)
+
+arquivo.close()
+
+print("O caractere", caractere, "ocorre", num_ocorrencias, "vezes no arquivo.")
+
+6)
+
+nome_arquivo = input("Digite o nome do arquivo: ")
+
+arquivo = open(nome_arquivo, "r")
+
+conteudo = arquivo.read()
+
+contagem_letras = {}
+
+for letra in conteudo:
+    if letra.isalpha():
+        letra = letra.lower()
+        if letra in contagem_letras:
+            contagem_letras[letra] += 1
+        else:
+            contagem_letras[letra] = 1
+
+arquivo.close()
+
+print("Contagem de letras:")
+for letra, ocorrencias in contagem_letras.items():
+    print(letra, ":", ocorrencias)
+
+7)
+
+nome_arquivo_entrada = input("Digite o nome do arquivo de entrada: ")
+
+nome_arquivo_saida = input("Digite o nome do arquivo de saída: ")
+
+arquivo_entrada = open(nome_arquivo_entrada, "r")
+
+conteudo = arquivo_entrada.read()
+
+conteudo_substituido = conteudo.lower().replace("a", "*").replace("e", "*").replace("i", "*").replace("o", "*").replace("u", "*")
+
+arquivo_saida = open(nome_arquivo_saida, "w")
+
+arquivo_saida.write(conteudo_substituido)
+
+arquivo_entrada.close()
+arquivo_saida.close()
+
+print("Arquivo de saída criado com sucesso!")
+
+8)
+
+nome_arquivo_entrada = input("Digite o nome do arquivo de entrada: ")
+
+nome_arquivo_saida = input("Digite o nome do arquivo de saída: ")
+
+arquivo_entrada = open(nome_arquivo_entrada, "r")
+
+conteudo = arquivo_entrada.read()
+
+conteudo_convertido = conteudo.upper()
+
+arquivo_saida = open(nome_arquivo_saida, "w")
+
+arquivo_saida.write(conteudo_convertido)
+
+arquivo_entrada.close()
+arquivo_saida.close()
+
+print("Arquivo de saída criado com sucesso!")
+
+9)
+
+nome_arquivo1 = input("Digite o nome do primeiro arquivo: ")
+
+nome_arquivo2 = input("Digite o nome do segundo arquivo: ")
+
+nome_arquivo3 = input("Digite o nome do terceiro arquivo: ")
+
+arquivo1 = open(nome_arquivo1, "r")
+
+arquivo2 = open(nome_arquivo2, "r")
+
+conteudo1 = arquivo1.read()
+conteudo2 = arquivo2.read()
+
+arquivo1.close()
+arquivo2.close()
+
+arquivo3 = open(nome_arquivo3, "w")
+
+arquivo3.write(conteudo1)
+arquivo3.write(conteudo2)
+
+arquivo3.close()
+
+print("Arquivo", nome_arquivo3, "criado com sucesso!")
+
+10)
+
+import numpy as np
+import pandas as pd
+import pickle
+
+def ler_matriz():
+    matriz = []
+    print("Digite os valores da matriz:")
+    for i in range(3):
+        linha = []
+        for j in range(3):
+            valor = int(input("Valor da posição (%d, %d): " % (i, j)))
+            linha.append(valor)
+        matriz.append(linha)
+    return np.array(matriz)
+
+def escrever_matriz_txt(matriz, nome_arquivo):
+    np.savetxt(nome_arquivo, matriz, fmt="%d")
+
+def ler_matriz_txt(nome_arquivo):
+    return np.loadtxt(nome_arquivo, dtype=int)
+
+def escrever_matriz_csv(matriz, nome_arquivo):
+    df = pd.DataFrame(matriz)
+    df.to_csv(nome_arquivo, index=False, header=False)
+
+def ler_matriz_csv(nome_arquivo):
+    df = pd.read_csv(nome_arquivo, header=None)
+    return df.values
+
+def escrever_matriz_pkl(matriz, nome_arquivo):
+    with open(nome_arquivo, "wb") as arquivo:
+        pickle.dump(matriz, arquivo)
+
+def ler_matriz_pkl(nome_arquivo):
+    with open(nome_arquivo, "rb") as arquivo:
+        return pickle.load(arquivo)
+
+matriz = ler_matriz()
+
+nome_arquivo_txt = "matriz.txt"
+escrever_matriz_txt(matriz, nome_arquivo_txt)
+matriz_txt = ler_matriz_txt(nome_arquivo_txt)
+print("Matriz lida de arquivo .txt:")
+print(matriz_txt)
+
+nome_arquivo_csv = "matriz.csv"
+escrever_matriz_csv(matriz, nome_arquivo_csv)
+matriz_csv = ler_matriz_csv(nome_arquivo_csv)
+print("Matriz lida de arquivo .csv:")
+print(matriz_csv)
+
+nome_arquivo_pkl = "matriz.pkl"
+escrever_matriz_pkl(matriz, nome_arquivo_pkl)
+matriz_pkl = ler_matriz_pkl(nome_arquivo_pkl)
+print("Matriz lida de arquivo .pkl:")
+print(matriz_pkl)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
